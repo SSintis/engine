@@ -1,6 +1,10 @@
-#pragma once
+#ifndef Engine_hpp
+#define Engine_hpp
 
 class Engine{
-private:
 public:
+    Engine();
+    void sayHello();
 };
+
+#endif /* Engine_hpp */
