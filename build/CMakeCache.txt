@@ -14,7 +14,8 @@
 # EXTERNAL cache entries
 ########################
 
-//Build shared libraries
+//TRUE to build SFML as shared libraries, FALSE to build it as
+// static libraries
 BUILD_SHARED_LIBS:BOOL=OFF
 
 //Path to a program.
@@ -23,14 +24,14 @@ CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
-//No help, variable specified on the command line.
-CMAKE_BUILD_TYPE:STRING=Debug
+//Choose the type of build (Debug or Release)
+CMAKE_BUILD_TYPE:STRING=
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++
+//CXX compiler
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -55,8 +56,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc
+//C compiler
+CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -99,8 +100,8 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//No help, variable specified on the command line.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
+//Enable/Disable output of compile commands during generation.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/home/emo_profisional/programingCplusPlus/engine/build/CMakeFiles/pkgRedirects
@@ -202,22 +203,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=life
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=3.0.1
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=3
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=1
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+CMAKE_PROJECT_NAME:STATIC=CMakeSFMLProject
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -293,6 +279,54 @@ CMakeSFMLProject_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 CMakeSFMLProject_SOURCE_DIR:STATIC=/home/emo_profisional/programingCplusPlus/engine
 
+//Enable to build Debian packages
+CPACK_BINARY_DEB:BOOL=OFF
+
+//Enable to build FreeBSD packages
+CPACK_BINARY_FREEBSD:BOOL=OFF
+
+//Enable to build IFW packages
+CPACK_BINARY_IFW:BOOL=OFF
+
+//Enable to build NSIS packages
+CPACK_BINARY_NSIS:BOOL=OFF
+
+//Enable to build RPM packages
+CPACK_BINARY_RPM:BOOL=OFF
+
+//Enable to build STGZ packages
+CPACK_BINARY_STGZ:BOOL=ON
+
+//Enable to build TBZ2 packages
+CPACK_BINARY_TBZ2:BOOL=OFF
+
+//Enable to build TGZ packages
+CPACK_BINARY_TGZ:BOOL=ON
+
+//Enable to build TXZ packages
+CPACK_BINARY_TXZ:BOOL=OFF
+
+//Enable to build TZ packages
+CPACK_BINARY_TZ:BOOL=ON
+
+//Enable to build RPM source packages
+CPACK_SOURCE_RPM:BOOL=OFF
+
+//Enable to build TBZ2 source packages
+CPACK_SOURCE_TBZ2:BOOL=ON
+
+//Enable to build TGZ source packages
+CPACK_SOURCE_TGZ:BOOL=ON
+
+//Enable to build TXZ source packages
+CPACK_SOURCE_TXZ:BOOL=ON
+
+//Enable to build TZ source packages
+CPACK_SOURCE_TZ:BOOL=ON
+
+//Enable to build ZIP source packages
+CPACK_SOURCE_ZIP:BOOL=OFF
+
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=/home/emo_profisional/programingCplusPlus/engine/build/_deps
 
@@ -313,8 +347,35 @@ FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
 //Enables UPDATE_DISCONNECTED behavior just for population of SFML
 FETCHCONTENT_UPDATES_DISCONNECTED_SFML:BOOL=OFF
 
+//Path to a file.
+FLAC_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+FLAC_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libFLAC.so
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/include/freetype2
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_ft2build:PATH=/usr/include/freetype2
+
+//Path to a library.
+FREETYPE_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libfreetype.so
+
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=/usr/bin/git
+
+//Path to a file.
+OGG_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+OGG_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libogg.so
+
+//Path to a file.
+OPENAL_INCLUDE_DIR:PATH=/usr/include/AL
+
+//Path to a library.
+OPENAL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libopenal.so
 
 //Path to a file.
 OPENGL_EGL_INCLUDE_DIR:PATH=/usr/include
@@ -358,46 +419,71 @@ OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
 //Value Computed by CMake
 SFML_BINARY_DIR:STATIC=/home/emo_profisional/programingCplusPlus/engine/build/_deps/sfml-build
 
-//ON to build SFML's Audio module.
-SFML_BUILD_AUDIO:BOOL=ON
+//TRUE to build SFML's Audio module.
+SFML_BUILD_AUDIO:BOOL=TRUE
 
-//ON to build SFML's Graphics module.
-SFML_BUILD_GRAPHICS:BOOL=ON
+//TRUE to generate the API documentation, FALSE to ignore it
+SFML_BUILD_DOC:BOOL=FALSE
 
-//ON to build SFML's Network module.
-SFML_BUILD_NETWORK:BOOL=ON
+//TRUE to build the SFML examples, FALSE to ignore them
+SFML_BUILD_EXAMPLES:BOOL=FALSE
 
-//ON to build SFML's Window module. This setting is ignored, if
-// the graphics module is built.
-SFML_BUILD_WINDOW:BOOL=ON
+//TRUE to build SFML's Graphics module.
+SFML_BUILD_GRAPHICS:BOOL=TRUE
 
-//Enable sanitizers
-SFML_ENABLE_SANITIZERS:BOOL=OFF
+//TRUE to build SFML's Network module.
+SFML_BUILD_NETWORK:BOOL=TRUE
 
-//Enable standard library assertions
-SFML_ENABLE_STDLIB_ASSERTIONS:BOOL=OFF
+//TRUE to build the SFML test suite, FALSE to ignore it
+SFML_BUILD_TEST_SUITE:BOOL=FALSE
+
+//TRUE to build SFML's Window module. This setting is ignored,
+// if the graphics module is built.
+SFML_BUILD_WINDOW:BOOL=TRUE
+
+//TRUE to automatically install pkg-config files so other projects
+// can find SFML
+SFML_INSTALL_PKGCONFIG_FILES:BOOL=TRUE
 
 //Value Computed by CMake
 SFML_IS_TOP_LEVEL:STATIC=OFF
 
-//ON to use an OpenGL ES implementation, OFF to use a desktop OpenGL
-// implementation
+//TRUE to use an OpenGL ES implementation, FALSE to use a desktop
+// OpenGL implementation
 SFML_OPENGL_ES:BOOL=0
+
+//Install directory for SFML's pkg-config .pc files
+SFML_PKGCONFIG_INSTALL_PREFIX:PATH=/usr/local/lib/pkgconfig
 
 //Value Computed by CMake
 SFML_SOURCE_DIR:STATIC=/home/emo_profisional/programingCplusPlus/engine/build/_deps/sfml-src
 
-//ON to use DRM windowing backend
-SFML_USE_DRM:BOOL=OFF
+//TRUE to use DRM windowing backend
+SFML_USE_DRM:BOOL=FALSE
 
-//ON to use system dependencies, OFF to use the bundled ones.
-SFML_USE_SYSTEM_DEPS:BOOL=ON
+//TRUE to use system dependencies, FALSE to use the bundled ones.
+SFML_USE_SYSTEM_DEPS:BOOL=FALSE
+
+//Path to a file.
+UDEV_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+UDEV_LIBRARIES:FILEPATH=/usr/lib/x86_64-linux-gnu/libudev.so
+
+//Path to a library.
+VORBISENC_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbisenc.so
+
+//Path to a library.
+VORBISFILE_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbisfile.so
+
+//Path to a file.
+VORBIS_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+VORBIS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbis.so
 
 //Treat compiler warnings as errors
-SFML_WARNINGS_AS_ERRORS:BOOL=OFF
-
-//The directory containing a CMake configuration file for UDev.
-UDev_DIR:PATH=UDev_DIR-NOTFOUND
+WARNINGS_AS_ERRORS:BOOL=OFF
 
 //Path to a file.
 X11_ICE_INCLUDE_PATH:PATH=/usr/include
@@ -801,14 +887,20 @@ X11_xkbfile_INCLUDE_PATH:PATH=X11_xkbfile_INCLUDE_PATH-NOTFOUND
 //Path to a library.
 X11_xkbfile_LIB:FILEPATH=X11_xkbfile_LIB-NOTFOUND
 
-//Value Computed by CMake
-life_BINARY_DIR:STATIC=/home/emo_profisional/programingCplusPlus/engine/build
+//Dependencies for the target
+sfml-audio_LIB_DEPENDS:STATIC=general;OpenAL::OpenAL;general;sfml-system;
 
-//Value Computed by CMake
-life_IS_TOP_LEVEL:STATIC=ON
+//Dependencies for the target
+sfml-graphics_LIB_DEPENDS:STATIC=general;sfml-window;
 
-//Value Computed by CMake
-life_SOURCE_DIR:STATIC=/home/emo_profisional/programingCplusPlus/engine
+//Dependencies for the target
+sfml-network_LIB_DEPENDS:STATIC=general;sfml-system;
+
+//Dependencies for the target
+sfml-system_LIB_DEPENDS:STATIC=general;pthread;general;rt;
+
+//Dependencies for the target
+sfml-window_LIB_DEPENDS:STATIC=general;sfml-system;general;dl;
 
 
 ########################
@@ -881,6 +973,8 @@ CMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS
+CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
@@ -895,8 +989,6 @@ CMAKE_GENERATOR_TOOLSET:INTERNAL=
 CMAKE_HAVE_CONNECT:INTERNAL=1
 //Have function gethostbyname
 CMAKE_HAVE_GETHOSTBYNAME:INTERNAL=1
-//Test CMAKE_HAVE_LIBC_PTHREAD
-CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Have function remove
 CMAKE_HAVE_REMOVE:INTERNAL=1
 //Have function shmat
@@ -957,7 +1049,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1002,14 +1094,68 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_DEB
+CPACK_BINARY_DEB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_FREEBSD
+CPACK_BINARY_FREEBSD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_IFW
+CPACK_BINARY_IFW-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_NSIS
+CPACK_BINARY_NSIS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_RPM
+CPACK_BINARY_RPM-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_STGZ
+CPACK_BINARY_STGZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_TBZ2
+CPACK_BINARY_TBZ2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_TGZ
+CPACK_BINARY_TGZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_TXZ
+CPACK_BINARY_TXZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_TZ
+CPACK_BINARY_TZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_RPM
+CPACK_SOURCE_RPM-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TBZ2
+CPACK_SOURCE_TBZ2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TGZ
+CPACK_SOURCE_TGZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TXZ
+CPACK_SOURCE_TXZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TZ
+CPACK_SOURCE_TZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_ZIP
+CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
+//Details about finding FLAC
+FIND_PACKAGE_MESSAGE_DETAILS_FLAC:INTERNAL=[/usr/lib/x86_64-linux-gnu/libFLAC.so][/usr/include][v()]
+//Details about finding OpenAL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenAL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libopenal.so][/usr/include/AL][v()]
 //Details about finding OpenGL
-FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libOpenGL.so][/usr/lib/x86_64-linux-gnu/libGLX.so][/usr/include][cfound components: OpenGL ][v()]
-//Details about finding Threads
-FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libOpenGL.so][/usr/lib/x86_64-linux-gnu/libGLX.so][/usr/include][c ][v()]
+//Details about finding VORBIS
+FIND_PACKAGE_MESSAGE_DETAILS_VORBIS:INTERNAL=[/usr/lib/x86_64-linux-gnu/libvorbisenc.so;/usr/lib/x86_64-linux-gnu/libvorbisfile.so;/usr/lib/x86_64-linux-gnu/libvorbis.so;/usr/lib/x86_64-linux-gnu/libogg.so][/usr/include][/usr/include][v()]
 //Details about finding X11
-FIND_PACKAGE_MESSAGE_DETAILS_X11:INTERNAL=[/usr/include][/usr/lib/x86_64-linux-gnu/libX11.so][cfound components: Xrandr Xcursor Xi ][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_X11:INTERNAL=[/usr/include][/usr/lib/x86_64-linux-gnu/libX11.so][c ][v()]
+//ADVANCED property for variable: FLAC_INCLUDE_DIR
+FLAC_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FLAC_LIBRARY
+FLAC_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_freetype2
+FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_ft2build
+FREETYPE_INCLUDE_DIR_ft2build-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_LIBRARY
+FREETYPE_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OGG_INCLUDE_DIR
+OGG_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OGG_LIBRARY
+OGG_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENAL_INCLUDE_DIR
+OPENAL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENAL_LIBRARY
+OPENAL_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
 OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLES2_INCLUDE_DIR
@@ -1036,6 +1182,18 @@ OPENGL_glx_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_opengl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_xmesa_INCLUDE_DIR
 OPENGL_xmesa_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: UDEV_INCLUDE_DIR
+UDEV_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: UDEV_LIBRARIES
+UDEV_LIBRARIES-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: VORBISENC_LIBRARY
+VORBISENC_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: VORBISFILE_LIBRARY
+VORBISFILE_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: VORBIS_INCLUDE_DIR
+VORBIS_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: VORBIS_LIBRARY
+VORBIS_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_INCLUDE_PATH
 X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_LIB

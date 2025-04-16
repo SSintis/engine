@@ -3,14 +3,11 @@
 #include "../include/Core/Logger.hpp"
 #include <iostream>
 
-
 int main()
 {
-    Logger log;
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
-    
-    log.sayHello();
+    Logger log;
     log.sayHello();
     shape.setFillColor(sf::Color::Green);
 
