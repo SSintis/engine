@@ -1,10 +1,16 @@
-#ifndef Engine_hpp
-#define Engine_hpp
+#include <memory>
+#include <string>
+#include <SFML/Graphics.hpp>
 
 class Engine{
 public:
     Engine();
-    void sayHello();
+    Engine(int weight, int height, const std::string& title);
+    void Run();
+
+    ~Engine();
+private:
+    sf::RenderWindow* _window;
 };
 
 #endif /* Engine_hpp */
