@@ -8,6 +8,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     Logger log;
+    Engine newEngine;
+    newEngine.sayHello();
     log.sayHello();
     shape.setFillColor(sf::Color::Green);
 
