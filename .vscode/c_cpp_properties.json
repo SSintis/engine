@@ -8,7 +8,8 @@
             "defines": [],
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-clang-x64"
+            "intelliSenseMode": "linux-clang-x64",
+            "compilerPath": "/usr/include/SFML/Graphics.hpp"
         }
     ],
     "version": 4

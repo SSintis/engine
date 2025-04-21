@@ -1,6 +1,4 @@
-
 #include "../include/Core/Engine.hpp"
-#include "../include/Core/Logger.hpp"
 #include <iostream>
 
 int main()

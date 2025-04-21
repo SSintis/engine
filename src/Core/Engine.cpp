@@ -1,4 +1,5 @@
 #include "../../include/Core/Engine.hpp"
+#include "../../include/Graphics/RenderSystem.hpp"
 
 Engine::Engine(){_window = nullptr;}
 Engine::Engine(int weight, int height, const std::string& title){
