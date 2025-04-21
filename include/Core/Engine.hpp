@@ -1,3 +1,5 @@
+#pragma once
+
 #include <memory>
 #include <string>
 #include <SFML/Graphics.hpp>
@@ -7,10 +9,9 @@ public:
     Engine();
     Engine(int weight, int height, const std::string& title);
     void Run();
+    void create();
 
     ~Engine();
 private:
     sf::RenderWindow* _window;
 };
-
-#endif /* Engine_hpp */
