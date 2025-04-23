@@ -9,7 +9,6 @@ public:
     Engine();
     Engine(int weight, int height, const std::string& title);
     void Run();
-    void create();
 
     ~Engine();
 private:
