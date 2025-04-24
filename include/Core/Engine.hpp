@@ -9,6 +9,7 @@ public:
     Engine();
     Engine(int weight, int height, const std::string& title);
     void Run();
+    bool gameIsOn() { return _window->isOpen(); }
 
     ~Engine();
 private:
