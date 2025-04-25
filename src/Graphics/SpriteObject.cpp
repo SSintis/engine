@@ -9,3 +9,8 @@ SpriteObject::SpriteObject(const std::string& title, float axisX, float axisY){
     sprite.scale(sf::Vector2f(0.1, 0.1));
     sprite.setPosition(axisX, axisY);
 }
+
+void SpriteObject::move(float x, float y){
+    sprite.setPosition(sprite.getPosition().x + x,
+                        sprite.getPosition().y + y);
+}

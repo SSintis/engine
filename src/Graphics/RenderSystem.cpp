@@ -11,3 +11,7 @@ void RenderSystem::RenderObject(sf::RenderWindow* _window){
 void RenderSystem::addNewSprite(SpriteObject* newObject){
     bufferForRender.push_back(newObject);
 }
+
+RenderSystem::~RenderSystem(){
+    for(int i = 0; i < bufferForRender.size(); i++) { delete bufferForRender[i]; }
+}

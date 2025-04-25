@@ -14,8 +14,18 @@ int main()
     RenderSystem::addNewSprite(&newSprite2);
 
     while (engine.gameIsOn()){
-        newSprite.returnSpriteObject().setPosition(0, 100);
-        newSprite2.returnSpriteObject().setPosition(100, 100);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+            newSprite.move(0, -1);
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+            newSprite.move(-1, 0);
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+            newSprite.move(0, 1);
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            newSprite.move(1, 0);
+        }
         engine.Run();
     }
     return 0;

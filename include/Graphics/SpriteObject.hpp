@@ -3,8 +3,7 @@
 #include <string>
 #include <iostream>
 
-class SpriteObject
-{
+class SpriteObject{
 private:
     sf::Texture texture;
     sf::Sprite sprite;
@@ -12,4 +11,5 @@ private:
 public:
     SpriteObject(const std::string& title, float axisX, float axisY);
     sf::Sprite& returnSpriteObject(){ return sprite; }
+    void move(float x, float y);
 };
