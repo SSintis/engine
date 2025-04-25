@@ -11,5 +11,5 @@ private:
     
 public:
     SpriteObject(const std::string& title, float axisX, float axisY);
-    sf::Sprite returnSpriteObject(){ return sprite; }
+    sf::Sprite& returnSpriteObject(){ return sprite; }
 };

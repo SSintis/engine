@@ -3,10 +3,11 @@
 
 void RenderSystem::RenderObject(sf::RenderWindow* _window){
 	for (int i = 0; i < bufferForRender.size(); i++){
-        _window->draw(bufferForRender[i].returnSpriteObject());
+        _window->draw(bufferForRender[i]->returnSpriteObject());
+        //std::cout<<bufferForRender[i]->returnSpriteObject().getPosition().y << std::endl;
     }
 }
 
-void RenderSystem::addNewSprite(SpriteObject newObject){
+void RenderSystem::addNewSprite(SpriteObject* newObject){
     bufferForRender.push_back(newObject);
 }

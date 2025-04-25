@@ -6,8 +6,8 @@
 class RenderSystem
 {
 private:
-    static inline std::vector<SpriteObject> bufferForRender;
+    static inline std::vector<SpriteObject*> bufferForRender;
 public:
     static void RenderObject(sf::RenderWindow* _window);
-    static void addNewSprite(SpriteObject newObject);
+    static void addNewSprite(SpriteObject* newObject);
 };
