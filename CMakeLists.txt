@@ -14,7 +14,8 @@ add_executable(main src/main.cpp
                 src/Core/Logger.cpp
                 src/Core/Engine.cpp
                 src/Graphics/RenderSystem.cpp
-                src/Graphics/SpriteObject.cpp)#сюда вписываем все компоненты для компиляции
+                src/Graphics/SpriteObject.cpp
+                src/Utils/EventManeger.cpp)#сюда вписываем все компоненты для компиляции
 target_link_libraries(main PRIVATE sfml-graphics)
 target_compile_features(main PRIVATE cxx_std_17)
 
