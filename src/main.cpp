@@ -15,6 +15,7 @@ int main()
 
     while (engine.gameIsOn()){
         newSprite.returnSpriteObject().setPosition(0, 100);
+        newSprite2.returnSpriteObject().setPosition(100, 100);
         engine.Run();
     }
     return 0;
