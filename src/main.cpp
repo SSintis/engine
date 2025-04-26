@@ -18,7 +18,7 @@ int main()
             newSprite.move(0, -1);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-            newSprite.move(-0.5, 0);
+            newSprite.move(-1, 0);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
             newSprite.move(0, 1);
