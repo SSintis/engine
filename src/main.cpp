@@ -3,30 +3,45 @@
 #include "../include/Graphics/SpriteObject.hpp"
 #include <iostream>
 
+#define WIDTH 600
+#define HEIGHT 400
+
 int main()
 {
-    Engine engine(600, 400, "GAME IS LOOP!!!", 240);
+    Engine engine(WIDTH, HEIGHT, "GAME IS LOOP!!!", 240);
 
-    SpriteObject newSprite("/home/emo_profisional/programingCplusPlus/engine/assets/as.jpg", 0, 1);
-    SpriteObject newSprite2("/home/emo_profisional/programingCplusPlus/engine/assets/sa.jpg", 100, 2);
+    SpriteObject newSprite("/home/emo_profisional/programingCplusPlus/engine/assets/as.jpg", 0, 1, 0.1);
+    SpriteObject newSprite2("/home/emo_profisional/programingCplusPlus/engine/assets/sa.jpg", WIDTH / 2, HEIGHT / 2, 0.1);
+    SpriteObject player("/home/emo_profisional/programingCplusPlus/engine/assets/BODY_skeleton.png", 0, 1, 1);
 
-    RenderSystem::addNewSprite(&newSprite);
+    player.initAnimation(64, 64);
+
     RenderSystem::addNewSprite(&newSprite2);
+    RenderSystem::addNewSprite(&newSprite);
+    RenderSystem::addNewSprite(&player);
 
     while (engine.gameIsOn()){
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-            newSprite.move(0, -0.5 * engine.getDeltaTime());
+            player.move(0, -0.5 * engine.getDeltaTime());
+            player.updateAnimation(Rotation::UP);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-            newSprite.move(-0.5 * engine.getDeltaTime(), 0);
+            player.move(-0.5 * engine.getDeltaTime(), 0);
+            player.updateAnimation(Rotation::LEFT);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-            newSprite.move(0, 0.5 * engine.getDeltaTime());
+            player.move(0, 0.5 * engine.getDeltaTime());
+            player.updateAnimation(Rotation::DOWN);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-            newSprite.move(0.5 * engine.getDeltaTime(), 0);
+            player.move(0.5 * engine.getDeltaTime(), 0);
+            player.updateAnimation(Rotation::RIGHT);
         }
         engine.Run();
+
+        if(player.returnSpriteObject().getGlobalBounds().intersects(newSprite2.returnSpriteObject().getGlobalBounds())){
+            std::cout<<"1"<<std::endl;
+        }
     }
     return 0;
 }
