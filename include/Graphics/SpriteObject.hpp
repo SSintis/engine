@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Hitbox.hpp"
 #include <string>
 #include <iostream>
 
@@ -9,6 +10,8 @@ class SpriteObject{
 private:
     sf::Texture texture;
     sf::Sprite sprite;
+
+    Hitbox* hitbox = nullptr;
 
     int spriteWidth, spriteHeight;
     Rotation rotationSprite;
@@ -22,5 +25,8 @@ public:
     void updateAnimation(Rotation rot);
 
     void setTextureRect(int x, int y, int height, int width);
-    void move(float x, float y);
+    void move(float offsetX, float offsetY);
+
+    void setHitbox(float offsetX, float offsetY, float width, float height);
+    Hitbox* getHitbox() const;
 };

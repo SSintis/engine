@@ -15,33 +15,37 @@ int main()
     SpriteObject player("/home/emo_profisional/programingCplusPlus/engine/assets/BODY_skeleton.png", 0, 1, 1);
 
     player.initAnimation(64, 64);
+    player.setHitbox(0, 0, 64, 64);
 
     RenderSystem::addNewSprite(&newSprite2);
     RenderSystem::addNewSprite(&newSprite);
     RenderSystem::addNewSprite(&player);
 
     while (engine.gameIsOn()){
+        float delta = engine.getDeltaTime();
+        float speed = 0.5f * delta;
+
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-            player.move(0, -0.5 * engine.getDeltaTime());
+            player.move(0, -speed);
             player.updateAnimation(Rotation::UP);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-            player.move(-0.5 * engine.getDeltaTime(), 0);
+            player.move(-speed, 0);
             player.updateAnimation(Rotation::LEFT);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-            player.move(0, 0.5 * engine.getDeltaTime());
+            player.move(0, speed);
             player.updateAnimation(Rotation::DOWN);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-            player.move(0.5 * engine.getDeltaTime(), 0);
+            player.move(speed, 0);
             player.updateAnimation(Rotation::RIGHT);
         }
         engine.Run();
 
-        if(player.returnSpriteObject().getGlobalBounds().intersects(newSprite2.returnSpriteObject().getGlobalBounds())){
-            std::cout<<"1"<<std::endl;
-        }
+        // if(player.returnSpriteObject().getGlobalBounds().intersects(newSprite2.returnSpriteObject().getGlobalBounds())){
+        //     std::cout<<"1"<<std::endl;
+        // }
     }
     return 0;
 }

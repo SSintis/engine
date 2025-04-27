@@ -12,9 +12,14 @@ SpriteObject::SpriteObject(const std::string& title, float axisX, float axisY, f
     rotationSprite = Rotation::UP;
 }
 
-void SpriteObject::move(float x, float y){
-    sprite.setPosition(sprite.getPosition().x + x,
-                        sprite.getPosition().y + y);
+void SpriteObject::move(float offsetX, float offsetY){
+    sprite.setPosition(sprite.getPosition().x + offsetX,
+                        sprite.getPosition().y + offsetY);
+
+    if (hitbox) {
+        hitbox->setPosition(sprite.getPosition().x + offsetX, 
+                            sprite.getPosition().y + offsetY);
+    }
 }
 
 void SpriteObject::setTextureRect(int x, int y, int height, int width){
@@ -41,4 +46,14 @@ void SpriteObject::updateAnimation(Rotation rot){
     else if(rot == Rotation::RIGHT){
         sprite.setTextureRect(sf::IntRect(0, 3 * spriteHeight, spriteWidth, spriteHeight));
     }
+}
+
+void SpriteObject::setHitbox(float offsetX, float offsetY, float width, float height) {
+    hitbox = new Hitbox(sprite.getPosition().x + offsetX, 
+                        sprite.getPosition().y + offsetY, 
+                        width, height);
+}
+
+Hitbox* SpriteObject::getHitbox() const {
+    return hitbox;
 }
