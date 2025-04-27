@@ -7,12 +7,30 @@ void RenderSystem::RenderObject(sf::RenderWindow* _window){
         if (bufferForRender[i]->getHitbox()) {
             bufferForRender[i]->getHitbox()->draw(_window);
         }
-        //std::cout<<bufferForRender[i]->returnSpriteObject().getPosition().y << std::endl;
+
+        if (bufferForRender[i]->getCollider() && showCollider) {
+            sf::FloatRect bounds = bufferForRender[i]->getCollider()->getBounds();
+            sf::RectangleShape rect(sf::Vector2f(bounds.width, bounds.height));
+            rect.setPosition(bounds.left, bounds.top);
+            rect.setFillColor(sf::Color::Transparent);
+            rect.setOutlineColor(sf::Color::Blue);
+            rect.setOutlineThickness(1.f);
+            _window->draw(rect);
+        }
     }
 }
 
 void RenderSystem::addNewSprite(SpriteObject* newObject){
     bufferForRender.push_back(newObject);
+}
+
+void RenderSystem::editSettings(Setting argument){
+    switch (argument)
+    {
+    case Setting::DRAW_COLLIDER : showCollider = true; break;
+    case Setting::NOT_DRAW_COLLIDER : showCollider = false; break;
+    default: break;
+    }
 }
 
 RenderSystem::~RenderSystem(){

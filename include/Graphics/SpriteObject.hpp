@@ -1,6 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
 #include "Hitbox.hpp"
+#include "../Physics/Collider.hpp"
+
 #include <string>
 #include <iostream>
 
@@ -12,6 +15,7 @@ private:
     sf::Sprite sprite;
 
     Hitbox* hitbox = nullptr;
+    Collider* collider = nullptr;
 
     int spriteWidth, spriteHeight;
     Rotation rotationSprite;
@@ -29,4 +33,7 @@ public:
 
     void setHitbox(float offsetX, float offsetY, float width, float height);
     Hitbox* getHitbox() const;
+
+    Collider* getCollider() const { return collider; }
+    void setCollider(float offsetX = 0, float offsetY = 0, float width = 0, float height = 0);
 };

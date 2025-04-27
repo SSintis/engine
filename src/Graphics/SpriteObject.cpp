@@ -57,3 +57,12 @@ void SpriteObject::setHitbox(float offsetX, float offsetY, float width, float he
 Hitbox* SpriteObject::getHitbox() const {
     return hitbox;
 }
+
+void SpriteObject::setCollider(float offsetX, float offsetY, float width, float height){
+    if(collider == nullptr){
+        collider = new Collider(sprite, offsetX, offsetY, width, height);
+    }else{
+        collider->setOffset(offsetX, offsetY);
+        collider->setSize(width, height);
+    }
+}

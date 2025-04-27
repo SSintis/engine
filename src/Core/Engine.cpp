@@ -6,6 +6,7 @@ Engine::Engine(){_window = nullptr;}
 Engine::Engine(int weight, int height, const std::string& title, int maxFrameratePerSecond){
     _window = new sf::RenderWindow(sf::VideoMode(weight, height), title);
     _window->setFramerateLimit(maxFrameratePerSecond);
+    RenderSystem::editSettings(Setting::NOT_DRAW_COLLIDER);
 }
 
 void Engine::Run(){
