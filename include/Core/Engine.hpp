@@ -14,6 +14,8 @@ public:
     bool gameIsOn() { return _window->isOpen(); }
     float getDeltaTime() { return deltaTime; }
 
+    sf::RenderWindow* getWindow() { return _window; }
+
     ~Engine();
 private:
     sf::RenderWindow* _window;
