@@ -18,15 +18,12 @@ int main() {
   SpriteObject newSprite2(
       "/home/emo_profisional/programingCplusPlus/engine/assets/sa.jpg",
       WIDTH / 2, HEIGHT / 2, 0.1);
-  SpriteObject player("/home/emo_profisional/programingCplusPlus/engine/assets/"
-                      "BODY_skeleton.png",
-                      0, 1, 1);
+  SpriteObject player("/home/emo_profisional/programingCplusPlus/engine/assets/BODY_skeleton.png", 1, 1, 1);
 
-  sf::FloatRect nsb = newSprite2.returnSpriteObject().getGlobalBounds();
+  sf::FloatRect nsbt= newSprite2.returnSpriteObject().getGlobalBounds();
 
   sf::Font font; // шрифт
-  if (!font.loadFromFile("/home/emo_profisional/programingCplusPlus/engine/"
-                         "assets/Roboto-Black.ttf")) {
+  if (!font.loadFromFile("/home/emo_profisional/programingCplusPlus/engine/assets/Roboto-Black.ttf")) {
     std::cerr << "Failed to load font!" << std::endl;
   }
 
@@ -81,6 +78,7 @@ int main() {
     }
     if (player.getCollider()->checkCollision(*newSprite.getCollider())) {
       std::cout << "Collider!!!\n";
+      RenderSystem::deleteSprite(&newSprite);
       count++;
     }
 

@@ -1,3 +1,8 @@
 #include <SFML/Graphics.hpp>
+#include "Component.hpp"
 
-using Entity = unsigned int;
+class Entity{
+private:
+
+public:
+};

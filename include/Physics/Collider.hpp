@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../ECS/Component.hpp"
 
-class Collider
-{
+class Collider : public Component{
 private:
     sf::Sprite& sprite;
     sf::FloatRect bounds;

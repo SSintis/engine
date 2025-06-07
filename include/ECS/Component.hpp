@@ -11,7 +11,3 @@ struct Sprite : public Component{
     sf::Sprite sprite;
 };
 
-struct Movement : public Component{
-    float x;
-    float y;
-};

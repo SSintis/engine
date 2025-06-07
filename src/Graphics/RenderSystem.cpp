@@ -30,6 +30,15 @@ void RenderSystem::addNewText(sf::Text* newText){
     bufferForRenderText.push_back(newText);
 }
 
+void RenderSystem::deleteSprite(SpriteObject* Object){
+  for (int i = 0 ; i < bufferForRender.size() ; i++ ) {
+      if(bufferForRender[i] == Object){ 
+          bufferForRender.erase(bufferForRender.begin() + i);
+          return;
+      }
+  }
+}
+
 void RenderSystem::editSettings(Setting argument){
     switch (argument)
     {

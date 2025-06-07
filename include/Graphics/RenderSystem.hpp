@@ -13,6 +13,7 @@ private:
 public:
     static void RenderObject(sf::RenderWindow* _window);
     static void addNewSprite(SpriteObject* newObject);
+    static void deleteSprite(SpriteObject* Object);
     static void addNewText(sf::Text* newText);
     static void editSettings(Setting argument);
     ~RenderSystem();
