@@ -1,3 +1,3 @@
-#mv ~/.config/nvim.bak ~/.config/nvim My engine
+My engine
 
 It is so cool project:)

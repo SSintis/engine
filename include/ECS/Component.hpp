@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <stdexcept>
+#include <string>
 
 class Component
 {
@@ -7,7 +9,15 @@ public:
 };
 
 struct Sprite : public Component{
-    sf::Texture texture;
-    sf::Sprite sprite;
+  std::string path;
+
+  sf::Texture texture;
+  sf::Sprite sprite;
+
+  Sprite(const std::string pathToSprite) : path(pathToSprite){
+    if(!texture.loadFromFile(path)){
+      std::runtime_error("You cant to load a sprite!!!\n");
+    }
+  }
 };
 
