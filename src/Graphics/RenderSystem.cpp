@@ -18,10 +18,25 @@ void RenderSystem::RenderObject(sf::RenderWindow* _window){
             _window->draw(rect);
         }
     }
+
+    for (int i = 0; i < bufferForRenderText.size(); i++) _window->draw(*bufferForRenderText[i]);
 }
 
 void RenderSystem::addNewSprite(SpriteObject* newObject){
     bufferForRender.push_back(newObject);
+}
+
+void RenderSystem::addNewText(sf::Text* newText){
+    bufferForRenderText.push_back(newText);
+}
+
+void RenderSystem::deleteSprite(SpriteObject* Object){
+  for (int i = 0 ; i < bufferForRender.size() ; i++ ) {
+      if(bufferForRender[i] == Object){ 
+          bufferForRender.erase(bufferForRender.begin() + i);
+          return;
+      }
+  }
 }
 
 void RenderSystem::editSettings(Setting argument){

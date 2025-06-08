@@ -1,6 +1,5 @@
 #pragma once
 
-#include <memory>
 #include <string>
 #include <SFML/Graphics.hpp>
 
@@ -13,6 +12,8 @@ public:
 
     bool gameIsOn() { return _window->isOpen(); }
     float getDeltaTime() { return deltaTime; }
+
+    sf::RenderWindow* getWindow() { return _window; }
 
     ~Engine();
 private:
