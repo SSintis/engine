@@ -12,7 +12,7 @@ Engine::Engine(int weight, int height, const std::string& title, int maxFramerat
 void Engine::Run(){
     sf::Time deltaTimeTimer = clock.restart();
     deltaTime = deltaTimeTimer.asMilliseconds();
-
+    
     EventManeger em;
     em.waitEvent(_window);
 
