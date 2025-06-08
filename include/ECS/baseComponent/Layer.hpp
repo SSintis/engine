@@ -2,7 +2,7 @@
 
 #include "../Component.hpp"
 
-struct Layer : Component{
+struct Layer : public Component{
   int z;
 
   Layer(int layer) : z(layer) { }
