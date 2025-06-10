@@ -3,21 +3,28 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
+#include "../Utils/EntityManeger.hpp"
+#include "../Utils/EventManeger.hpp"
+#include "../Graphics/RenderSystem.hpp"
+
 class Engine{
 public:
-    Engine();
-    Engine(int weight, int height, const std::string& title, int maxFrameratePerSecond);
-   
-    void Run();
+  Engine();
+  Engine(int weight, int height, const std::string& title, int maxFrameratePerSecond);
+ 
+  void Run(EntityManeger& entityManeger);
 
-    bool gameIsOn() { return _window->isOpen(); }
-    float getDeltaTime() { return deltaTime; }
+  bool gameIsOn() { return _window->isOpen(); }
+  float getDeltaTime() { return deltaTime; }
 
-    sf::RenderWindow* getWindow() { return _window; }
+  sf::RenderWindow* getWindow() { return _window; }
 
-    ~Engine();
+  ~Engine();
 private:
-    sf::RenderWindow* _window;
-    sf::Clock clock;
-    float deltaTime;
+  sf::RenderWindow* _window;
+  sf::Clock clock;
+  float deltaTime;
+
+  EventManeger eventManeger;
+  RenderSystem renderer; 
 };

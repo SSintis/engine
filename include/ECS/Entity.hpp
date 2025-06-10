@@ -8,7 +8,7 @@
 
 class Entity{
 private:
-  std::unordered_map<std::type_index, std::unique_ptr<void>> components;
+  std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
 
 public:
   

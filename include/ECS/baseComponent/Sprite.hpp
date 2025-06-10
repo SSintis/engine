@@ -15,5 +15,12 @@ struct Sprite : public Component{
     if(!texture.loadFromFile(path)){
       std::runtime_error("You cant to load this sprite!!!\n");
     }
+  
+    sprite.setTexture(texture);
+    sprite.setPosition(0,0);
+  }
+
+  void getForDraw(sf::RenderWindow& _window){
+    _window.draw(sprite);
   }
 };
